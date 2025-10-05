@@ -56,8 +56,8 @@ A web-based application designed to help farmers and tribal communities detect c
 
 1. **Clone the repository**
 ```bash
-git clone <repository_url>
-cd <project_folder>
+git clone <https://github.com/ANANTHNAG2005/hack_ap/tree/main>
+cd <backend>
 Install Python dependencies
 ```
 bash
@@ -97,13 +97,11 @@ project/
 │  ├─ success_logs.py
 │  ├─ tutorials.py
 │  └─ offline_mode.py
-│
-├─ data/
-│  ├─ seasonal_calendar.json
+   ├─ seasonal_calendar.json
 │  ├─ labels.json
 │  ├─ tutorials.json
 │  └─ offline_cache.json
-│
+
 ├─ databases/
 │  ├─ community.db
 │  └─ success_logs.db
@@ -112,6 +110,6 @@ project/
 
 
 Future Improvements
-Multi-language support for community and tutorials.
-Mobile app version for easier offline access.
-Real-time notifications for weather alerts and disease outbreaks.
+1. Multi-language support for community and tutorials.
+2. Mobile app version for easier offline access.
+3. Real-time notifications for weather alerts and disease outbreaks.
