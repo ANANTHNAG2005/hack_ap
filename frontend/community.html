@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community</title>
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Community Posts</h1>
+  </header>
+
+  <section>
+    <textarea id="postText" placeholder="Write your message..."></textarea>
+    <button id="submitPost">Post</button>
+    <button onclick="goBack()">Go Back</button>
+  </section>
+
+  <section id="communitySection"></section>
+
+  <script>
+    const postText = document.getElementById("postText");
+    const submitPost = document.getElementById("submitPost");
+    const communitySection = document.getElementById("communitySection");
+
+    function goBack() {
+      window.location.href = "index.html";
+    }
+
+    async function fetchCommunityPosts() {
+      try {
+        const res = await fetch("http://127.0.0.1:8000/community/posts");
+        const data = await res.json();
+        communitySection.innerHTML = "";
+        if (Array.isArray(data) && data.length > 0) {
+          data.forEach(post => {
+            const div = document.createElement("div");
+            div.className = "feature-item";
+            div.innerHTML = `<strong>${post.user_name}</strong> (${post.disease})<br>
+                             <p>${post.message}</p>
+                             <small>${new Date(post.timestamp).toLocaleString()}</small>`;
+            communitySection.appendChild(div);
+          });
+        } else {
+          communitySection.innerText = "No posts available";
+        }
+      } catch (err) {
+        console.error("Error fetching posts:", err);
+        communitySection.innerText = "Error fetching posts!";
+      }
+    }
+
+    submitPost.addEventListener("click", async () => {
+      const text = postText.value.trim();
+      const userName = prompt("Enter your name:");
+      const disease = prompt("Enter disease/topic:");
+      if (!text) return alert("Please enter a message!");
+
+      const postData = { user_name: userName || "Anonymous", disease: disease || "General", message: text };
+
+      try {
+        const res = await fetch("http://127.0.0.1:8000/community/post", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(postData)
+        });
+        if (!res.ok) throw new Error("Failed to post");
+        postText.value = "";
+        fetchCommunityPosts();
+      } catch (err) {
+        console.error("Error submitting post:", err);
+        alert("Error submitting post!");
+      }
+    });
+
+    fetchCommunityPosts();
+  </script>
+</body>
+</html>

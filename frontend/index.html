@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🌿 Crop Disease Detector</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .hidden { display: none; }
+    .container { max-width: 800px; margin: auto; padding: 20px; text-align: center; }
+    #previewImage { max-width: 100%; margin-top: 10px; }
+    #uploadBox { border: 2px dashed #ccc; padding: 20px; cursor: pointer; margin-top: 20px; }
+    button { padding: 6px 12px; margin: 10px; cursor: pointer; }
+    .nav-btns { margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🌿 Crop Disease Detector</h1>
+    <p>Upload a plant image to detect disease</p>
+
+    <div id="uploadBox">
+      📤 Click to upload image
+      <input type="file" id="imageUpload" accept="image/*" class="hidden">
+    </div>
+
+    <img id="previewImage" class="hidden" alt="Preview Image">
+    <br>
+    <button id="predictBtn" disabled>🔍 Predict Disease</button>
+
+    <!-- Community & Success buttons -->
+    <div class="nav-btns">
+      <button onclick="window.location.href='community.html'">👩‍🌾 Community Posts</button>
+      <button onclick="window.location.href='success.html'">🏆 Success Stories</button>
+    </div>
+  </div>
+
+  <script>
+    const uploadBox = document.getElementById("uploadBox");
+    const imageUpload = document.getElementById("imageUpload");
+    const previewImage = document.getElementById("previewImage");
+    const predictBtn = document.getElementById("predictBtn");
+
+    uploadBox.addEventListener("click", () => imageUpload.click());
+
+    imageUpload.addEventListener("change", () => {
+      const file = imageUpload.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = e => {
+        previewImage.src = e.target.result;
+        previewImage.classList.remove("hidden");
+        predictBtn.disabled = false;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    predictBtn.addEventListener("click", async () => {
+      const file = imageUpload.files[0];
+      if (!file) return alert("Please select an image!");
+
+      const formData = new FormData();
+      formData.append("file", file);
+
+      predictBtn.disabled = true;
+
+      try {
+        const res = await fetch("http://127.0.0.1:8000/predict", {
+          method: "POST",
+          body: formData
+        });
+        const data = await res.json();
+
+        const disease = data.disease || "Unknown";
+
+        // Redirect to results page with disease name only
+        const params = new URLSearchParams({ disease });
+        window.location.href = `results.html?${params.toString()}`;
+
+      } catch (err) {
+        console.error(err);
+        alert("Error predicting disease!");
+      }
+
+      predictBtn.disabled = false;
+    });
+  </script>
+</body>
+</html>

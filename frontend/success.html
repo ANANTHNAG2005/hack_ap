@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Success Tracking</title>
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Success Logs</h1>
+  </header>
+
+  <section>
+    <textarea id="postText" placeholder="Write your success note..."></textarea>
+    <button id="submitPost">Post</button>
+    <button onclick="goBack()">Go Back</button>
+  </section>
+
+  <section id="successSection"></section>
+
+  <script>
+    const postText = document.getElementById("postText");
+    const submitPost = document.getElementById("submitPost");
+    const successSection = document.getElementById("successSection");
+
+    function goBack() {
+      window.location.href = "index.html";
+    }
+
+    async function fetchSuccessPosts() {
+      try {
+        const res = await fetch("http://127.0.0.1:8000/success/success_logs");
+        const data = await res.json();
+        successSection.innerHTML = "";
+        if (Array.isArray(data.logs) && data.logs.length > 0) {
+          data.logs.forEach(post => {
+            const div = document.createElement("div");
+            div.className = "feature-item";
+            div.innerHTML = `<strong>Disease:</strong> ${post.disease}<br>
+                             <strong>Remedy:</strong> ${post.remedy}<br>
+                             <strong>Result:</strong> ${post.result}<br>
+                             <small>${new Date(post.timestamp).toLocaleString()}</small>`;
+            successSection.appendChild(div);
+          });
+        } else {
+          successSection.innerText = "No posts available";
+        }
+      } catch (err) {
+        console.error("Error fetching success logs:", err);
+        successSection.innerText = "Error fetching posts!";
+      }
+    }
+
+    submitPost.addEventListener("click", async () => {
+      const text = postText.value.trim();
+      if (!text) return alert("Please enter a success message!");
+
+      const disease = prompt("Enter disease/problem:");
+      const remedy = prompt("Enter remedy/treatment:");
+      const result = prompt("Enter result (success/failure):");
+
+      const postData = {
+        disease: disease || "General",
+        remedy: remedy || "N/A",
+        result: result || "success"
+      };
+
+      try {
+        const res = await fetch("http://127.0.0.1:8000/success/success_log", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(postData)
+        });
+        if (!res.ok) throw new Error("Failed to post");
+        postText.value = "";
+        fetchSuccessPosts();
+      } catch (err) {
+        console.error("Error submitting post:", err);
+        alert("Error submitting post!");
+      }
+    });
+
+    fetchSuccessPosts();
+  </script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+{
+    "0": {
+        "label": "Apple Scab",
+        "advice": "Use organic fungicide and maintain leaf hygiene."
+    },
+    "1": {
+        "label": "Apple with Black Rot",
+        "advice": "Remove infected fruits and apply copper-based sprays."
+    },
+    "2": {
+        "label": "Cedar Apple Rust",
+        "advice": "Remove nearby cedar trees and apply protective fungicide."
+    },
+    "3": {
+        "label": "Healthy Apple",
+        "advice": "No treatment required."
+    },
+    "4": {
+        "label": "Healthy Blueberry Plant",
+        "advice": "No treatment required."
+    },
+    "5": {
+        "label": "Cherry with Powdery Mildew",
+        "advice": "Apply sulfur-based fungicide and ensure proper spacing."
+    },
+    "6": {
+        "label": "Healthy Cherry Plant",
+        "advice": "No treatment required."
+    },
+    "7": {
+        "label": "Corn (Maize) with Cercospora and Gray Leaf Spot",
+        "advice": "Remove infected leaves, rotate crops, and use fungicides."
+    },
+    "8": {
+        "label": "Corn (Maize) with Common Rust",
+        "advice": "Apply resistant varieties and use fungicide if severe."
+    },
+    "9": {
+        "label": "Corn (Maize) with Northern Leaf Blight",
+        "advice": "Remove infected debris, apply fungicide as needed."
+    },
+    "10": {
+        "label": "Healthy Corn (Maize) Plant",
+        "advice": "No treatment required."
+    },
+    "11": {
+        "label": "Grape with Black Rot",
+        "advice": "Prune infected parts and apply fungicide regularly."
+    },
+    "12": {
+        "label": "Grape with Esca (Black Measles)",
+        "advice": "Remove infected vines and improve air circulation."
+    },
+    "13": {
+        "label": "Grape with Isariopsis Leaf Spot",
+        "advice": "Spray fungicide and remove infected leaves."
+    },
+    "14": {
+        "label": "Healthy Grape Plant",
+        "advice": "No treatment required."
+    },
+    "15": {
+        "label": "Orange with Citrus Greening",
+        "advice": "Remove infected trees and control psyllid insects."
+    },
+    "16": {
+        "label": "Peach with Bacterial Spot",
+        "advice": "Spray copper-based bactericide and remove infected leaves."
+    },
+    "17": {
+        "label": "Healthy Peach Plant",
+        "advice": "No treatment required."
+    },
+    "18": {
+        "label": "Bell Pepper with Bacterial Spot",
+        "advice": "Remove infected fruits and apply copper sprays."
+    },
+    "19": {
+        "label": "Healthy Bell Pepper Plant",
+        "advice": "No treatment required."
+    },
+    "20": {
+        "label": "Potato with Early Blight",
+        "advice": "Remove infected leaves and apply fungicide regularly."
+    },
+    "21": {
+        "label": "Potato with Late Blight",
+        "advice": "Use resistant varieties and apply appropriate fungicides."
+    },
+    "22": {
+        "label": "Healthy Potato Plant",
+        "advice": "No treatment required."
+    },
+    "23": {
+        "label": "Healthy Raspberry Plant",
+        "advice": "No treatment required."
+    },
+    "24": {
+        "label": "Healthy Soybean Plant",
+        "advice": "No treatment required."
+    },
+    "25": {
+        "label": "Squash with Powdery Mildew",
+        "advice": "Apply sulfur or potassium bicarbonate sprays."
+    },
+    "26": {
+        "label": "Strawberry with Leaf Scorch",
+        "advice": "Remove infected leaves and apply fungicide."
+    },
+    "27": {
+        "label": "Healthy Strawberry Plant",
+        "advice": "No treatment required."
+    },
+    "28": {
+        "label": "Tomato with Bacterial Spot",
+        "advice": "Remove infected leaves and apply copper sprays."
+    },
+    "29": {
+        "label": "Tomato with Early Blight",
+        "advice": "Use resistant varieties and rotate crops."
+    },
+    "30": {
+        "label": "Tomato with Late Blight",
+        "advice": "Apply fungicide and remove infected plants."
+    },
+    "31": {
+        "label": "Tomato with Leaf Mold",
+        "advice": "Improve air circulation and apply fungicide."
+    },
+    "32": {
+        "label": "Tomato with Septoria Leaf Spot",
+        "advice": "Remove infected leaves and use fungicide."
+    },
+    "33": {
+        "label": "Tomato with Spider Mites or Two-spotted Spider Mite",
+        "advice": "Use miticide and maintain humidity."
+    },
+    "34": {
+        "label": "Tomato with Target Spot",
+        "advice": "Apply fungicide and remove infected leaves."
+    },
+    "35": {
+        "label": "Tomato Yellow Leaf Curl Virus",
+        "advice": "Control whiteflies and remove infected plants."
+    },
+    "36": {
+        "label": "Tomato Mosaic Virus",
+        "advice": "Use resistant varieties and remove infected plants."
+    },
+    "37": {
+        "label": "Healthy Tomato Plant",
+        "advice": "No treatment required."
+    }
+}

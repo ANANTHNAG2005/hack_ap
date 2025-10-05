@@ -1,0 +1,62 @@
+{
+    "January": {
+        "Apple": ["Prune old branches", "Apply dormant organic fungicide"],
+        "Grape": ["Inspect vines for pests", "Apply dormant sprays if needed"],
+        "Potato": ["Prepare seed tubers", "Ensure soil drainage"]
+    },
+    "February": {
+        "Apple": ["Monitor for cedar apple rust", "Maintain leaf hygiene"],
+        "Cherry": ["Prune and remove infected leaves", "Prepare compost"],
+        "Tomato": ["Start seedlings indoors", "Check for leaf mold in greenhouses"]
+    },
+    "March": {
+        "Apple": ["Apply organic fungicide for scab prevention"],
+        "Corn": ["Prepare soil and sow seeds", "Monitor for rust disease"],
+        "Grape": ["Spray sulfur-based fungicide for powdery mildew"]
+    },
+    "April": {
+        "Potato": ["Plant early varieties", "Apply organic pest deterrents"],
+        "Tomato": ["Harden seedlings", "Check for early blight risk"],
+        "Bell Pepper": ["Plant seedlings", "Monitor for bacterial spot"]
+    },
+    "May": {
+        "Corn": ["Monitor leaf blight", "Apply compost and mulch"],
+        "Tomato": ["Apply organic fungicide if early blight detected"],
+        "Strawberry": ["Mulch to retain soil moisture", "Remove infected leaves"]
+    },
+    "June": {
+        "Tomato": ["Control spider mites", "Apply potassium bicarbonate for mildew"],
+        "Squash": ["Monitor powdery mildew", "Ensure proper spacing"],
+        "Grape": ["Thin leaves for air circulation", "Check for black rot"]
+    },
+    "July": {
+        "Potato": ["Apply fungicide for late blight", "Remove diseased leaves"],
+        "Corn": ["Rotate crops to prevent Cercospora", "Check for rust"],
+        "Tomato": ["Monitor for target spot and mosaic virus"]
+    },
+    "August": {
+        "Apple": ["Harvest early varieties", "Check for black rot"],
+        "Tomato": ["Remove infected plants", "Control whiteflies for yellow leaf curl virus"],
+        "Peach": ["Apply copper sprays if bacterial spot appears"]
+    },
+    "September": {
+        "Corn": ["Harvest mature crops", "Remove debris to prevent blight"],
+        "Strawberry": ["Prepare beds for next planting", "Apply fungicide for leaf scorch"],
+        "Tomato": ["Continue pest monitoring", "Remove diseased leaves"]
+    },
+    "October": {
+        "Apple": ["Clean fallen leaves to prevent scab", "Apply protective sprays"],
+        "Grape": ["Prune and remove infected vines", "Apply fungicide for leaf spot"],
+        "Bell Pepper": ["Harvest fruits", "Check for bacterial spot"]
+    },
+    "November": {
+        "Potato": ["Lift tubers and store", "Check for late blight before storage"],
+        "Tomato": ["Clear remaining plants", "Prepare soil for winter crops"],
+        "Squash": ["Remove old leaves", "Apply sulfur sprays if needed"]
+    },
+    "December": {
+        "Apple": ["Inspect trees", "Apply dormant sprays for scab prevention"],
+        "Cherry": ["Prune and mulch", "Check for powdery mildew risk"],
+        "Tomato": ["Plan next season planting", "Clean greenhouse and tools"]
+    }
+}

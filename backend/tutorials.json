@@ -1,0 +1,154 @@
+{
+    "0": {
+        "label": "Apple Scab",
+        "video_url": "https://www.youtube.com/watch?v=SMS2jHqACrY"
+    },
+    "1": {
+        "label": "Apple with Black Rot",
+        "video_url": "https://www.youtube.com/watch?v=cYLrdQGdjf8"
+    },
+    "2": {
+        "label": "Cedar Apple Rust",
+        "video_url": "https://www.youtube.com/watch?v=ZyG6H1uZ4fI"
+    },
+    "3": {
+        "label": "Healthy Apple",
+        "video_url": "https://www.youtube.com/watch?v=3Xk9g7G6g0g"
+    },
+    "4": {
+        "label": "Healthy Blueberry Plant",
+        "video_url": "https://www.youtube.com/watch?v=8Qj9g5g5g5g"
+    },
+    "5": {
+        "label": "Cherry with Powdery Mildew",
+        "video_url": "https://www.youtube.com/watch?v=q1G4RsslFYI"
+    },
+    "6": {
+        "label": "Healthy Cherry Plant",
+        "video_url": "https://www.youtube.com/watch?v=5Xk9g5g5g5g"
+    },
+    "7": {
+        "label": "Corn (Maize) with Cercospora and Gray Leaf Spot",
+        "video_url": "https://www.youtube.com/watch?v=3Xk9g7G6g0g"
+    },
+    "8": {
+        "label": "Corn (Maize) with Common Rust",
+        "video_url": "https://www.youtube.com/watch?v=8Qj9g5g5g5g"
+    },
+    "9": {
+        "label": "Corn (Maize) with Northern Leaf Blight",
+        "video_url": "https://www.youtube.com/watch?v=uafRy5EqwBQ"
+    },
+    "10": {
+        "label": "Healthy Corn (Maize) Plant",
+        "video_url": "https://www.youtube.com/watch?v=5Xk9g5g5g5g"
+    },
+    "11": {
+        "label": "Grape with Black Rot",
+        "video_url": "https://www.youtube.com/watch?v=3Xk9g7G6g0g"
+    },
+    "12": {
+        "label": "Grape with Esca (Black Measles)",
+        "video_url": "https://www.youtube.com/watch?v=8Qj9g5g5g5g"
+    },
+    "13": {
+        "label": "Grape with Isariopsis Leaf Spot",
+        "video_url": "https://www.youtube.com/watch?v=5Xk9g5g5g5g"
+    },
+    "14": {
+        "label": "Healthy Grape Plant",
+        "video_url": "https://www.youtube.com/watch?v=3Xk9g7G6g0g"
+    },
+    "15": {
+        "label": "Orange with Citrus Greening",
+        "video_url": "https://www.youtube.com/watch?v=8Qj9g5g5g5g"
+    },
+    "16": {
+        "label": "Peach with Bacterial Spot",
+        "video_url": "https://www.youtube.com/watch?v=5Xk9g5g5g5g"
+    },
+    "17": {
+        "label": "Healthy Peach Plant",
+        "video_url": "https://www.youtube.com/watch?v=3Xk9g7G6g0g"
+    },
+    "18": {
+        "label": "Bell Pepper with Bacterial Spot",
+        "video_url": "https://www.youtube.com/watch?v=8Qj9g5g5g5g"
+    },
+    "19": {
+        "label": "Healthy Bell Pepper Plant",
+        "video_url": "https://www.youtube.com/watch?v=5Xk9g5g5g5g"
+    },
+    "20": {
+        "label": "Potato with Early Blight",
+        "video_url": "https://www.youtube.com/watch?v=AaTFOQLmK5M"
+    },
+    "21": {
+        "label": "Potato with Late Blight",
+        "video_url": "https://www.youtube.com/watch?v=21-3WwRYiME"
+    },
+    "22": {
+        "label": "Healthy Potato Plant",
+        "video_url": "https://www.youtube.com/watch?v=3Xk9g7G6g0g"
+    },
+    "23": {
+        "label": "Healthy Raspberry Plant",
+        "video_url": "https://www.youtube.com/watch?v=8Qj9g5g5g5g"
+    },
+    "24": {
+        "label": "Healthy Soybean Plant",
+        "video_url": "https://www.youtube.com/watch?v=5Xk9g5g5g5g"
+    },
+    "25": {
+        "label": "Squash with Powdery Mildew",
+        "video_url": "https://www.youtube.com/watch?v=3Xk9g7G6g0g"
+    },
+    "26": {
+        "label": "Strawberry with Leaf Scorch",
+        "video_url": "https://www.youtube.com/watch?v=8Qj9g5g5g5g"
+    },
+    "27": {
+        "label": "Healthy Strawberry Plant",
+        "video_url": "https://www.youtube.com/watch?v=5Xk9g5g5g5g"
+    },
+    "28": {
+        "label": "Tomato with Bacterial Spot",
+        "video_url": "https://www.youtube.com/watch?v=3Xk9g7G6g0g"
+    },
+    "29": {
+        "label": "Tomato with Early Blight",
+        "video_url": "https://www.youtube.com/watch?v=8Qj9g5g5g5g"
+    },
+    "30": {
+        "label": "Tomato with Late Blight",
+        "video_url": "https://www.youtube.com/watch?v=75rQk6-zdzY"
+    },
+    "31": {
+        "label": "Tomato with Leaf Mold",
+        "video_url": "https://www.youtube.com/watch?v=3Xk9g7G6g0g"
+    },
+    "32": {
+        "label": "Tomato with Septoria Leaf Spot",
+        "video_url": "https://www.youtube.com/watch?v=8Qj9g5g5g5g"
+    },
+    "33": {
+        "label": "Tomato with Spider Mites or Two-spotted Spider Mite",
+        "video_url": "https://www.youtube.com/watch?v=5Xk9g5g5g5g"
+    },
+    "34": {
+        "label": "Tomato with Target Spot",
+        "video_url": "https://www.youtube.com/watch?v=3Xk9g7G6g0g"
+    },
+    "35": {
+        "label": "Tomato Yellow Leaf Curl Virus",
+        "video_url": "https://www.youtube.com/watch?v=3Xk9g7G6g0g"
+    },
+    "36": {
+        "label": "Tomato Mosaic Virus",
+        "video_url": "https://www.youtube.com/watch?v=8Qj9g5g5g5g"
+    },
+    "37": {
+        "label": "Healthy Tomato Plant",
+        "video_url": "https://www.youtube.com/watch?v=5Xk9g5g5g5g"
+    }
+}

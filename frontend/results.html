@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>🌾 Farm Insights Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .container { max-width: 900px; margin: auto; padding: 20px; }
+    .feature-section { margin-bottom: 30px; }
+    .feature-item { margin: 5px 0; }
+    .back-btn { padding: 6px 12px; margin-bottom: 20px; cursor: pointer; }
+    .title { text-align: center; margin-bottom: 20px; }
+    .disease-name { font-size: 1.2em; margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="back-btn" onclick="window.location.href='index.html'">⬅ Back</button>
+    <h1 class="title">🌾 Farm Insights Dashboard</h1>
+
+    <p class="disease-name" id="diseaseName">🦠 Detected Disease: Loading...</p>
+
+    <h2 class="feature-title">🌱 Organic Advice</h2>
+    <div id="organicSection" class="feature-section">Loading...</div>
+
+    <h2 class="feature-title">📅 Seasonal Calendar</h2>
+    <div id="calendarSection" class="feature-section">Loading...</div>
+
+    <h2 class="feature-title">☁️ Weather Alerts</h2>
+    <div id="weatherSection" class="feature-section">Loading...</div>
+
+    <h2 class="feature-title">🎥 Video Tutorials</h2>
+    <div id="videoSection" class="feature-section">Loading...</div>
+
+    <h2 class="feature-title">🛒 Local Suppliers</h2>
+    <div id="suppliersSection" class="feature-section">Loading...</div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const disease = params.get("disease") || "Unknown";
+    document.getElementById("diseaseName").textContent = `🦠 Detected Disease: ${disease}`;
+
+    // Fetch Organic Advice
+    async function fetchOrganicAdvice() {
+      const section = document.getElementById("organicSection");
+      try {
+        const res = await fetch(`http://127.0.0.1:8000/organic/advice?disease=${encodeURIComponent(disease)}`);
+        const data = await res.json();
+        if (data.organic_remedies && data.organic_remedies.length) {
+          section.innerHTML = data.organic_remedies.map(s => `<div class="feature-item">- ${s}</div>`).join("");
+        } else {
+          section.textContent = "No advice available";
+        }
+      } catch {
+        section.textContent = "Error fetching advice";
+      }
+    }
+
+    // Fetch Seasonal Calendar (current month only)
+    async function fetchCalendar() {
+      const section = document.getElementById("calendarSection");
+      try {
+        const res = await fetch(`http://127.0.0.1:8000/calendar/seasonal_calendar`);
+        const data = await res.json();
+
+        if (!data.calendar) {
+          section.textContent = "No seasonal calendar data available";
+          return;
+        }
+
+        const monthNames = [
+          "January", "February", "March", "April", "May", "June",
+          "July", "August", "September", "October", "November", "December"
+        ];
+        const currentMonth = monthNames[new Date().getMonth()];
+
+        if (data.calendar[currentMonth]) {
+          const plants = data.calendar[currentMonth];
+          let html = `<strong>${currentMonth}</strong>:<br>`;
+          for (const plant in plants) {
+            html += `${plant}: ${plants[plant].join(", ")}<br>`;
+          }
+          section.innerHTML = html;
+        } else {
+          section.textContent = `No seasonal calendar data for ${currentMonth}`;
+        }
+      } catch {
+        section.textContent = "Error fetching calendar";
+      }
+    }
+
+    // Fetch Video Tutorials filtered by disease
+    async function fetchVideos() {
+      const section = document.getElementById("videoSection");
+      try {
+        const res = await fetch(`http://127.0.0.1:8000/videos/tutorials`);
+        const data = await res.json();
+        if (data.tutorials && data.tutorials.length) {
+          const filtered = data.tutorials.filter(t => t.label.toLowerCase().includes(disease.toLowerCase()));
+          if (filtered.length) {
+            section.innerHTML = filtered.map(t => 
+              `<div class="feature-item">
+                <strong>${t.label}</strong>: 
+                <a href="${t.video_url}" target="_blank">Watch Video</a>
+              </div>`
+            ).join("");
+          } else {
+            section.textContent = "No tutorials available for this disease";
+          }
+        } else {
+          section.textContent = "No videos available";
+        }
+      } catch {
+        section.textContent = "Error fetching videos";
+      }
+    }
+
+    // Fetch Weather & Local Suppliers using Geolocation
+    function fetchLocationBasedData() {
+      const weatherSection = document.getElementById("weatherSection");
+      const suppliersSection = document.getElementById("suppliersSection");
+
+      if (!navigator.geolocation) {
+        weatherSection.textContent = "Geolocation not supported";
+        suppliersSection.textContent = "Geolocation not supported";
+        return;
+      }
+
+      navigator.geolocation.getCurrentPosition(async (position) => {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+
+        // Get city from OpenStreetMap
+        let city = "Unknown";
+        try {
+          const geoRes = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`);
+          const geoData = await geoRes.json();
+          city = geoData.address.city || geoData.address.town || geoData.address.village || "Unknown";
+        } catch {
+          city = "Unknown";
+        }
+
+        // Fetch Weather
+        try {
+          const weatherRes = await fetch(`http://127.0.0.1:8000/weather/weather_alert/${encodeURIComponent(city)}`);
+          const weatherData = await weatherRes.json();
+          if (weatherData.weather) {
+            weatherSection.innerHTML = `Location: ${weatherData.location}<br>Weather: ${weatherData.weather}<br>Temperature: ${weatherData.temperature_c}°C<br>Advice: ${weatherData.alert}`;
+          } else {
+            weatherSection.textContent = "No weather data available";
+          }
+        } catch {
+          weatherSection.textContent = "Error fetching weather";
+        }
+
+        // Fetch Local Suppliers
+        try {
+          const suppliersRes = await fetch(`http://127.0.0.1:8000/suppliers/?lat=${lat}&lon=${lon}`);
+          const suppliersData = await suppliersRes.json();
+          if (suppliersData.suppliers && suppliersData.suppliers.length) {
+            suppliersSection.innerHTML = suppliersData.suppliers.map(s => 
+              `<div class="feature-item">${s.name} (${s.type}) - Lat: ${s.lat.toFixed(5)}, Lon: ${s.lon.toFixed(5)}</div>`
+            ).join("");
+          } else {
+            suppliersSection.textContent = "No suppliers found nearby";
+          }
+        } catch {
+          suppliersSection.textContent = "Error fetching suppliers";
+        }
+
+      }, (error) => {
+        weatherSection.textContent = "Location permission denied";
+        suppliersSection.textContent = "Location permission denied";
+      });
+    }
+
+    // Execute all fetches
+    fetchOrganicAdvice();
+    fetchCalendar();
+    fetchVideos();
+    fetchLocationBasedData();
+  </script>
+</body>
+</html>
